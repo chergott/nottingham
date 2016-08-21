@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Quantity</th>
+      <th>Base Price</th>
+      <th>Asking Price</th>
+      <th>Today's Return</th>
+      <th>Total Return</th>
+      <td></td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each stocks as |stock|}}
+      <tr class="user-stock" {{action 'editStock' stock}}>
+        <th class="stock-symbol">{{stock.symbol}}</th>
+        <td class="stock-quantity">{{stock.quantity}}</td>
+        <td class="stock-base-price">{{stock.price}}</td>
+        <td class="stock-ask-price">{{stock.quote.ask}}</td>
+        <td class="{{if stock.isPositiveToday 'success' 'danger'}}">{{stock.todaysReturn}}</td>
+        <td class="{{if stock.isPositiveTotal 'success' 'danger'}}">{{stock.totalReturnF}}</td>
+        <td><span class="glyphicon glyphicon-pencil" aria-hidden="true" {{action 'editStock' stock}}></span></td>
+        <td><span class="glyphicon glyphicon-remove" aria-hidden="true" {{action 'removeStock' stock}}></span></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

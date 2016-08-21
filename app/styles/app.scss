@@ -1,0 +1,62 @@
+@import "bootstrap";
+$primary: #00897B;
+$primary-light: #B2DFDB;
+$primary-dark: #004D40;
+$secondary: #039BE5;
+$secondary-light: #81D4FA;
+$secondary-dark: #01579B;
+$accent: #E040FB;
+$accent-light: #EA80FC;
+$accent-dark: #7B1FA2;
+body {
+  padding-top: 20px;
+}
+.color-primary {
+  color: $primary;
+}
+.color-primary-light{
+  color: $primary-light;
+}
+.color-primary-dark {
+  color: $primary-dark;
+}
+.color-secondary {
+  color: $secondary;
+}
+.color-secondary-light{
+  color: $secondary-light;
+}
+.color-secondary-dark {
+  color: $secondary-dark;
+}
+.color-accent {
+  color: $accent;
+}
+.color-accent-light{
+  color: $accent-light;
+}
+.color-accent-dark {
+  color: $accent-dark;
+}
+.bg-primary {
+  background-color: $primary;
+}
+.bg-primary-light {
+  background-color: $primary-light;
+}
+.bg-primary-dark {
+  background-color: $primary-dark;
+}
+.bg-secondary {
+  background-color: $secondary;
+}
+.bg-secondary-light {
+  background-color: $secondary-light;
+}
+.bg-secondary-dark {
+  background-color: $secondary-dark;
+}
+.active {
+  color: black;
+  background-color: $primary-light;
+}
