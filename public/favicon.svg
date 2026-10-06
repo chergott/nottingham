@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- A rising line chart in Nottingham's teal. -->
+  <g fill="none" stroke="#00897B" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 54 H56" stroke-width="4"/>
+    <path d="M10 44 L24 30 L34 38 L52 16" stroke-width="6"/>
+    <path d="M40 16 H52 V28" stroke-width="6"/>
+  </g>
+</svg>

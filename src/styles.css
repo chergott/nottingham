@@ -1,0 +1,119 @@
+/* Radix Themes provides most styling; these are the app-specific pieces. */
+
+body {
+  margin: 0;
+}
+
+/* Reserve the scrollbar's space, so pages that scroll and pages that don't line up. */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Site navigation: the name and version on the left, the pages on the right. */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--gray-a5);
+}
+
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  margin-left: calc(-1 * var(--space-2));
+  border-radius: var(--radius-3);
+  font-size: var(--font-size-4);
+  font-weight: 700;
+  color: var(--gray-12);
+  text-decoration: none;
+}
+
+.nav-logo {
+  width: 1.4em;
+  height: 1.4em;
+}
+
+.nav-version {
+  font-size: var(--font-size-1);
+  color: var(--gray-10);
+  font-variant-numeric: tabular-nums;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-1);
+  margin-left: auto;
+}
+
+.nav-link {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-3);
+  font-size: var(--font-size-2);
+  font-weight: 500;
+  color: var(--gray-11);
+  text-decoration: none;
+}
+
+.nav-brand:hover,
+.nav-link:hover {
+  color: var(--gray-12);
+  background: var(--gray-a3);
+}
+
+.nav-brand:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--focus-8);
+  outline-offset: 2px;
+}
+
+.nav-link[aria-current="page"] {
+  color: var(--accent-11);
+  background: var(--accent-a3);
+}
+
+/* Numbers line up in their columns. */
+.stocks-table {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Narrow screens fold quantity and prices into the symbol's cell, so the returns fit. */
+.narrow-only {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .wide-only {
+    display: none;
+  }
+
+  .narrow-only {
+    display: block;
+  }
+}
+
+.stocks-total {
+  background: var(--gray-a2);
+}
+
+.field-label {
+  display: block;
+}
+
+/* The four order types wrap onto two rows on narrow screens. */
+.order-type {
+  max-width: 100%;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
