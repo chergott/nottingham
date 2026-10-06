@@ -1,0 +1,42 @@
+# Tests and builds the app as a static demo, then publishes it as @chergott/nottingham-demo
+# on GitHub Packages, for chergott-site to depend on (see demo-package).
+name: Demo package
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          registry-url: https://npm.pkg.github.com
+          scope: "@chergott"
+
+      - run: npm ci
+      - run: npm test
+      # The version is shown in the nav, so it's built in.
+      - run: npm run build:demo
+        env:
+          NOTTINGHAM_VERSION: 1.0.${{ github.run_number }}
+
+      - name: Publish
+        run: |
+          rm -rf demo-package/dist
+          cp -r dist-demo demo-package/dist
+          cd demo-package
+          npm version --no-git-tag-version "1.0.${{ github.run_number }}"
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

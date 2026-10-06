@@ -1,0 +1,15 @@
+{
+  "name": "@chergott/nottingham-demo",
+  "version": "0.0.0",
+  "description": "Nottingham, a stock portfolio tracker, as a static demo on made-up quotes, built to be served at /demos/nottingham/.",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chergott/nottingham.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
