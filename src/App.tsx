@@ -1,29 +1,38 @@
-import { Container, Heading, Text } from "@radix-ui/themes";
+import { Box, Container, ThemeProvider } from "@mui/material";
+import { AppBar } from "./AppBar";
 import { DemoBanner } from "./DemoBanner";
-import { NavBar } from "./NavBar";
-import { OrderForm } from "./OrderForm";
-import { Link, parseRoute, usePath } from "./router";
-import { StocksPage } from "./StocksPage";
+import { NottinghamPage } from "./NottinghamPage";
+import { nottinghamTheme, PAGE_MAX_WIDTH } from "./theme";
 
 export function App() {
-  const route = parseRoute(usePath());
   return (
-    <Container size="3" px="4" py="5">
-      <DemoBanner />
-      <NavBar current={route.page} />
-      {route.page === "stocks" && <StocksPage />}
-      {route.page === "new" && <OrderForm />}
-      {route.page === "edit" && <OrderForm editing={route.id} />}
-      {route.page === "not-found" && (
-        <>
-          <Heading as="h1" size="6" mb="2">
-            Page not found
-          </Heading>
-          <Text as="p" color="gray">
-            <Link to="/stocks">Go to your stocks</Link>.
-          </Text>
-        </>
-      )}
-    </Container>
+    <ThemeProvider theme={nottinghamTheme}>
+      <Box
+        sx={(theme) => ({
+          backgroundColor: theme.palette.background.default,
+          color: theme.palette.text.primary,
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+        })}
+      >
+        <AppBar />
+        {/* As wide as job-hunter's page at most, with its padding. */}
+        <Container
+          maxWidth={false}
+          sx={{
+            maxWidth: PAGE_MAX_WIDTH,
+            px: 2,
+            py: 4,
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+          }}
+        >
+          <DemoBanner />
+          <NottinghamPage />
+        </Container>
+      </Box>
+    </ThemeProvider>
   );
 }
